@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        {% include charset.html %}
+        <title>{{ site.name }} - {{ page.title }}</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta name='description' content='{{ site.description }}'>
+        <link href='/css/default.css' rel='stylesheet'/>
+    </head>
+<body>
+    <header>
+        <p class='left-head-or-foot'>{{ site.name }}</p>
+        <!-- Dummy element for layout purposes -->
+        <div class='center-head-or-foot'></div>
+        <p class='right-head-or-foot'>
+            <a href='toc.html'>Table of Contents</a>
+        </p>
+    </header>
+    {{ content }}
+    <hr/>
+    <footer>
+        <p class='left-head-or-foot'>
+            Prev: <a href='{{ page.prev_url }}'>{{ page.prev }}</a>
+        </p>
+        <p class='center-head-or-foot'>
+            <a href='LICENSE.html'>Copyright (c) 2015 Jason Manuel</a>
+        </p>
+        <p class='right-head-or-foot'>
+            Next: <a href='{{ page.next_url }}'>{{ page.next }}</a>
+        </p>
+    </footer>
+</body>
+</html>

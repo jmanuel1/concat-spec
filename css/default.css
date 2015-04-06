@@ -18,7 +18,7 @@ p {
 }
 
 code, pre {
-    font: 12pt 'Lucida Console', serif;
+    font: 12pt 'Lucida Console', monospace;
     background-color: lightGray;
 }
 

@@ -45,17 +45,34 @@ But wait a second! There are no variable names. All objects exist on the stack
 names.
 
     def quadratic_root:
-        swap (-) dup 2 ** stash stash
-        4 * preserve(*) unstash - sqrt unstash + swap pop
-        swap 2 * / return
+        swap (-) dup 2 ** swap stash stash
+        4 * preserve(*) unstash swap - sqrt unstash + swap pop
+        swap 2 * /
 
 What's with the lack of formal parameters? There are none - that's what makes
 the language point-free. Instead of formal parameters, the stack is implicitly
 passed (see [Function Calls][functioncalls]). Also, what's `swap`, `dup`,
 `(un)stash`, `pop` and `preserve`? `preserve` is an
-[operator modifier][operatormodifiers], and the others are
+[inline decorator][inlinedecorators], and the others are
 [stack modifiers][stackmodifiers].
 
+The real power comes when composing functions...
+
+    # Python's itertools recipes
+    from itertools import *
+    import collections
+    
+    def take: swap islice list
+    def tabulate: count map
+    def consume:
+        if None is:
+            pop
+            @{maxlen: 0}collections.deque
+        else:
+            dup islice None next
+        pop # get rid of None
+    # ...
+    
 ### Concat-Python Interop
 
 <p class='implementation-detail'>
@@ -66,4 +83,4 @@ passed (see [Function Calls][functioncalls]). Also, what's `swap`, `dup`,
   [stackmodifiers]:    stack_modifiers.html
   [expressions]:       expressions.html
   [functioncalls]:     function_calls.html
-  [operatormodifiers]: operator_modifiers.html
+  [inlinedecorators]:  inlinedecorators.html

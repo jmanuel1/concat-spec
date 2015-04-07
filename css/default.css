@@ -48,3 +48,12 @@ header {
     float: right;
     text-align: right;
 }
+
+table {
+    background-color: lightGray;
+}
+
+thead {
+    background-color: white;
+    font: 13pt 'Century Gothic', sans-serif;
+}

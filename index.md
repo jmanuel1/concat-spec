@@ -44,32 +44,33 @@ But wait a second! There are no variable names. All objects exist on the stack
 (except named functions). Here is the same example as a function with no variable
 names.
 
-    def quadratic_root:
+    from concat import *
+    def quadratic_root: # (a, b, c)
         swap (-) dup 2 ** swap stash stash
-        4 * preserve(*) unstash swap - sqrt unstash + swap pop
+        4 * dup2 * unstash swap - sqrt unstash + swap pop
         swap 2 * /
 
 What's with the lack of formal parameters? There are none - that's what makes
 the language point-free. Instead of formal parameters, the stack is implicitly
 passed (see [Function Calls][functioncalls]). Also, what's `swap`, `dup`,
-`(un)stash`, `pop` and `preserve`? `preserve` is an
-[inline decorator][inlinedecorators], and the others are
-[stack modifiers][stackmodifiers].
+`(un)stash`, `pop`? They are are [shuffle words][shufflewords].
 
 The real power comes when composing functions...
 
     # Python's itertools recipes
     from itertools import *
     import collections
+    from concat import pick, over
     
     def take: swap islice list
     def tabulate: count map
-    def consume:
-        if None is:
+    
+    def consume: # (iterator, n)
+        if dup None is:
             pop
-            @{maxlen: 0}collections.deque
+            collections deque . (over) {'maxlen': 0} apply
         else:
-            dup islice None next
+            dup $islice (pick, ident, ident) apply $next (ident, None) apply
         pop # get rid of None
     # ...
     
@@ -80,7 +81,6 @@ The real power comes when composing functions...
     meaning code from both languages should interop perfectly.
 </p>
 
-  [stackmodifiers]:    stack_modifiers.html
+  [shufflewords]:      {{ site.url }}/stdlib/shuffle_words.html
   [expressions]:       expressions.html
   [functioncalls]:     function_calls.html
-  [inlinedecorators]:  inlinedecorators.html

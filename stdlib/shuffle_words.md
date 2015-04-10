@@ -23,10 +23,10 @@ be wrapped in the `concat ShuffleWord .` decorator.
     over $print (concat stack . :-3 [] str) apply pop # [4, 2, 4]
     
 
-`concat.ShuffleWord` Decorator
+`concat ShuffleWord .` Decorator
 ------------------------------
 
-`concat.ShuffleWord` is implemented as a class, subclassing from
+`concat ShuffleWord .` is implemented as a class, subclassing from
 `collections abc . Callable .`
     
 Default Shuffle Words
@@ -114,8 +114,8 @@ These are borrowed from Factor.
         <tr>
             <td><code>concat dup3 .</code></td>
             <td>duplicate the 3 topmost values on the the stack (same as
-                <code>concat pick . apply concat pick . apply concat pick . apply
-                </code>)
+                <code>
+                concat pick . apply concat pick . apply concat pick . apply</code>)
             </td>
         </tr>
         <tr>

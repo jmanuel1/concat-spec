@@ -2,3 +2,8 @@ name: "The Concat Spec"
 description: "the Concat programming language specification"
 
 url: "http://localhost:4000"
+# markdown: kramdown
+# kramdown:
+#   input: GFM
+#   auto_ids: true
+#   syntax_highlighter: rouge

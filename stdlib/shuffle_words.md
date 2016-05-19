@@ -4,8 +4,8 @@ layout: default
 ---
 
 
-  [stack]: {{ site.url }}/stack.html
-  [stash]: {{ site.url }}/stash.html
+  [stack]: {{ site.github.url }}/stack.html
+  [stash]: {{ site.github.url }}/stash.html
 
 {{ page.title }}
 ================
@@ -14,21 +14,21 @@ layout: default
 be wrapped in the `concat.ShuffleWord` decorator.
 
     import concat
-    
-    # Factor's `over` shuffle word 
+
+    # Factor's `over` shuffle word
     @concat ShuffleWord .
     def over: concat.stack[-3]
-    
+
     4 2 $print (concat.stack[:-1] str) apply pop # [4, 2]
     over $print (concat.stack[:-1] str) apply pop # [4, 2, 4]
-    
+
 
 `concat.ShuffleWord` Decorator
 ------------------------------
 
 `concat.ShuffleWord` is implemented as a class, subclassing from
 `collections.abc.Callable`
-    
+
 Default Shuffle Words
 ---------------------
 

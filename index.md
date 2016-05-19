@@ -16,7 +16,7 @@ document, you need to understand the purpose of the different styles. This
 paragraph is body text.
 
     Text that looks like this is code.
-    
+
 [This is a link to Google](http://www.google.com/).
 
 <p class='implementation-detail'>
@@ -34,12 +34,12 @@ Concat is a Python-based, concatenative, stack-based, point-free programming
 language.
 
     'Hello from Concat' print
-    
+
 [Expressions][expressions] are postfix to match the concatenative style. There is a dedicated
 negation operator `(-)` to remove the need for parentheses.
 
     b (-) b 2 ** 4 a * c * - sqrt + 2 a * / # (-b + sqrt(b**2-4*a*c))/(2*a)
-    
+
 But wait a second! There are no variable names. All objects exist on the stack
 (except named functions). Here is the same example as a function with no variable
 names.
@@ -61,10 +61,10 @@ The real power comes when composing functions...
     from itertools import *
     import collections
     from concat import pick, over
-    
+
     def take: swap islice list
     def tabulate: count map
-    
+
     def consume: # (iterator, n)
         if dup None is:
             pop
@@ -73,7 +73,7 @@ The real power comes when composing functions...
             dup $islice (pick, ident, ident) apply $next (ident, None) apply
         pop # get rid of None
     # ...
-    
+
 ### Concat-Python Interop
 
 <p class='implementation-detail'>
@@ -81,6 +81,6 @@ The real power comes when composing functions...
     meaning code from both languages should interop perfectly.
 </p>
 
-  [shufflewords]:      {{ site.url }}/stdlib/shuffle_words.html
+  [shufflewords]:      {{ site.github.url }}/stdlib/shuffle_words.html
   [expressions]:       expressions.html
   [functioncalls]:     function_calls.html

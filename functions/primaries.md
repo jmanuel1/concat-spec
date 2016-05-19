@@ -28,6 +28,8 @@ If a slicing can be interpreted as a subscription, then it is.
 Complete Syntax
 ---------------
 
+<!-- TODO: automatically generate grammar docs -->
+
     primary ::= atom | attributeref | subscription | slicing
         attributeref ::= "." identifier
         subscription ::= "[" expression "]"

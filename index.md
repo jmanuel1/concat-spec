@@ -85,6 +85,6 @@ The real power comes when composing functions...
     meaning code from both languages should interop pretty well.
 </p>
 
-  [shufflewords]:      {{ site.github.url }}/stdlib/shuffle_words.html
+  [shufflewords]:      {{ site.url }}/stdlib/shuffle_words.html
   [expressions]:       expressions.html
   [functioncalls]:     function_calls.html

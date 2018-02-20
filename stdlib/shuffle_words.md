@@ -4,8 +4,8 @@ layout: default
 ---
 
 
-  [stack]: {{ site.github.url }}/stack.html
-  [stash]: {{ site.github.url }}/stash.html
+  [stack]: {{ site.url }}/stack.html
+  [stash]: {{ site.url }}/stash.html
 
 {{ page.title }}
 ================
